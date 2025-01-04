@@ -28,7 +28,7 @@ const Home = () => {
 
       console.log("Dados carregados: ", jsonData);
       setData(jsonData);
-      setFilteredData(jsonData);
+      setFilteredData(jsonData); // Aplique o filtro aqui, se necessário
     };
 
     carregarArquivo();
@@ -36,8 +36,9 @@ const Home = () => {
 
   // Função para limpar o cache manualmente
   const limparCache = () => {
-    // Limpar o cache localStorage ou sessionStorage
-    localStorage.clear(); // Ou sessionStorage.clear();
+    localStorage.clear();
+    sessionStorage.clear();
+    window.alert("Cache limpo com sucesso!"); // Exibe o alerta após limpar o cache
     console.log("Cache limpo!");
   };
 
@@ -80,6 +81,45 @@ const Home = () => {
     navigate(path); // Navega para o caminho fornecido
   };
 
+  // Ordena os dados por nome
+  const ordenarPorNome = (data) => {
+    return data.sort((a, b) => {
+      const nomeA = a[0].toLowerCase(); // Nome do Jogo é o primeiro valor da linha
+      const nomeB = b[0].toLowerCase();
+      return nameOrder === "asc" ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
+    });
+  };
+
+  // Filtra os dados com base nos filtros aplicados
+  const aplicarFiltros = () => {
+    let dadosFiltrados = data.slice(1); // Ignorar o cabeçalho, que está na primeira linha
+
+    // Filtra por plataforma
+    if (platformFilter !== "todos") {
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha[2].toLowerCase() === platformFilter);
+    }
+
+    // Filtra por status
+    if (statusFilter !== "todos") {
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha[1].toLowerCase() === statusFilter);
+    }
+
+    // Filtra por objetivo
+    if (goalFilter !== "todos") {
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha[3].toLowerCase() === goalFilter);
+    }
+
+    // Ordena por nome
+    dadosFiltrados = ordenarPorNome(dadosFiltrados);
+
+    setFilteredData(dadosFiltrados);
+  };
+
+  // Aplica os filtros sempre que algum filtro ou os dados mudarem
+  useEffect(() => {
+    aplicarFiltros();
+  }, [platformFilter, statusFilter, goalFilter, nameOrder, data]);
+
   return (
     <div className="container_home">
       <h1>Lista de Jogos</h1>
@@ -102,9 +142,7 @@ const Home = () => {
         <div>
           <label>Filtrar Plataforma</label>
           <button onClick={() => abrirModal("plataforma")}>
-            {platformFilter === "todos"
-              ? "Todas"
-              : platformFilter.toUpperCase()}
+            {platformFilter === "todos" ? "Todas" : platformFilter.toUpperCase()}
           </button>
         </div>
 
@@ -197,11 +235,12 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.slice(1).map((row, rowIndex) => (
+          {filteredData.map((row, rowIndex) => (
             <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex}>{cell}</td>
-              ))}
+              <td>{row[0]}</td> {/* Nome do Jogo */}
+              <td>{row[1]}</td> {/* Status */}
+              <td>{row[2]}</td> {/* Plataforma */}
+              <td>{row[3]}</td> {/* Objetivo */}
             </tr>
           ))}
         </tbody>
