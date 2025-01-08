@@ -1,0 +1,4 @@
+Nome;Plataforma;Data Inicio;Situacao;Data Termino;Nota Final
+Celeste;PC;03/01/2025;Concluido;08/01/2025;10
+Resident Evil Revelations 2;PC;03/01/2025;Abandonado;Não Concluido;5
+Buckshot Roulet;PC;03/01/2025;Concluido;06/01/2025;6

@@ -24,7 +24,7 @@ const Home = () => {
       const workbook = XLSX.read(arrayBuffer, { type: "array" });
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-      const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 0 });
 
       console.log("Dados carregados: ", jsonData);
       setData(jsonData);
@@ -84,29 +84,29 @@ const Home = () => {
   // Ordena os dados por nome
   const ordenarPorNome = (data) => {
     return data.sort((a, b) => {
-      const nomeA = a[0].toLowerCase(); // Nome do Jogo é o primeiro valor da linha
-      const nomeB = b[0].toLowerCase();
+      const nomeA = a["Nome do Jogo"].toLowerCase(); // Nome do Jogo é agora uma chave
+      const nomeB = b["Nome do Jogo"].toLowerCase();
       return nameOrder === "asc" ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
     });
   };
 
   // Filtra os dados com base nos filtros aplicados
   const aplicarFiltros = () => {
-    let dadosFiltrados = data.slice(1); // Ignorar o cabeçalho, que está na primeira linha
+    let dadosFiltrados = data; // Usar todos os dados
 
     // Filtra por plataforma
     if (platformFilter !== "todos") {
-      dadosFiltrados = dadosFiltrados.filter((linha) => linha[2].toLowerCase() === platformFilter);
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha["Plataforma"].toLowerCase() === platformFilter);
     }
 
     // Filtra por status
     if (statusFilter !== "todos") {
-      dadosFiltrados = dadosFiltrados.filter((linha) => linha[1].toLowerCase() === statusFilter);
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha["Status"].toLowerCase() === statusFilter);
     }
 
     // Filtra por objetivo
     if (goalFilter !== "todos") {
-      dadosFiltrados = dadosFiltrados.filter((linha) => linha[3].toLowerCase() === goalFilter);
+      dadosFiltrados = dadosFiltrados.filter((linha) => linha["Objetivo"].toLowerCase() === goalFilter);
     }
 
     // Ordena por nome
@@ -201,13 +201,8 @@ const Home = () => {
             {activeFilter === "objetivo" && (
               <div>
                 <button onClick={() => filtrarObjetivo("todos")}>Todos</button>
-                <button onClick={() => filtrarObjetivo("platina")}>
-                  Platinado
-                </button>
-                <button onClick={() => filtrarObjetivo("concluído")}>
-                  Concluído
-                </button>
-                <button onClick={() => filtrarObjetivo("zerar")}>Zerar</button>
+                <button onClick={() => filtrarObjetivo("platinado")}>Platinados</button>
+                <button onClick={() => filtrarObjetivo("platinando")}>Platinando</button>
               </div>
             )}
 
@@ -223,28 +218,28 @@ const Home = () => {
         </div>
       )}
 
-      <h1>Tabela de Jogos</h1>
-
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Nome do Jogo</th>
-            <th>Status</th>
-            <th>Plataforma</th>
-            <th>Objetivo</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              <td>{row[0]}</td> {/* Nome do Jogo */}
-              <td>{row[1]}</td> {/* Status */}
-              <td>{row[2]}</td> {/* Plataforma */}
-              <td>{row[3]}</td> {/* Objetivo */}
+      <div className="container_table">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome do Jogo</th>
+              <th>Status</th>
+              <th>Plataforma</th>
+              <th>Objetivo</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredData.map((linha, index) => (
+              <tr key={index}>
+                <td>{linha["Nome do Jogo"]}</td>
+                <td>{linha["Status"]}</td>
+                <td>{linha["Plataforma"]}</td>
+                <td>{linha["Objetivo"]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
