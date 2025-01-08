@@ -10,7 +10,7 @@ const NewGames = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = "https://raw.githubusercontent.com/viniciuszile/Jogos/main/novosjogos.xlsx"; // URL para o novo arquivo Excel
+    const url = "https://raw.githubusercontent.com/viniciuszile/Jogos/main/Data/novosjogos.xlsx"; // URL para o novo arquivo Excel
 
     const carregarArquivo = async () => {
       const response = await fetch(url);

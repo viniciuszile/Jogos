@@ -16,8 +16,9 @@ const Home = () => {
   const [nameOrder, setNameOrder] = useState("asc");
 
   useEffect(() => {
-    const url = `https://raw.githubusercontent.com/viniciuszile/Jogos/main/jogos.xlsx?${new Date().getTime()}`;
+    const url = `https://raw.githubusercontent.com/viniciuszile/Jogos/main/Data/jogos.xlsx?${new Date().getTime()}`;
 
+  
     const carregarArquivo = async () => {
       const response = await fetch(url, { cache: 'no-cache' });
       const arrayBuffer = await response.arrayBuffer();
@@ -25,23 +26,15 @@ const Home = () => {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 0 });
-
+  
       console.log("Dados carregados: ", jsonData);
       setData(jsonData);
       setFilteredData(jsonData); // Aplique o filtro aqui, se necessário
     };
-
+  
     carregarArquivo();
   }, []);  // Recarregar os dados sempre que a página for carregada
-
-  // Função para limpar o cache manualmente
-  const limparCache = () => {
-    localStorage.clear();
-    sessionStorage.clear();
-    window.alert("Cache limpo com sucesso!"); // Exibe o alerta após limpar o cache
-    console.log("Cache limpo!");
-  };
-
+  
   // Controle da visibilidade da modal
   const abrirModal = (filterType) => {
     setActiveFilter(filterType);
@@ -165,11 +158,6 @@ const Home = () => {
           <button onClick={() => handleNavigation("/newgames")}>
             New Games
           </button>
-        </div>
-
-        {/* Botão para limpar cache */}
-        <div>
-          <button onClick={limparCache}>Limpar Cache</button>
         </div>
       </div>
 
