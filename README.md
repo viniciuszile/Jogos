@@ -27,7 +27,9 @@ O projeto está hospedado no Netlify. Clique no link abaixo para acessar a aplic
 - **React**: Biblioteca JavaScript para a construção da interface interativa.
 - **FontAwesome**: Usado para adicionar ícones representando diferentes plataformas.
 - **XLSX.js**: Biblioteca para ler e manipular dados de planilhas Excel.
+- **Python**: Para desenvolvimento de uma aplicação que facilita a atualização da planilha, permitindo a adição automática de novos jogos.
 - **CSS**: Estilização personalizada para a interface do usuário.
+- **GitHub**: As imagens dos jogos e a planilha Excel estão hospedadas em repositórios do GitHub, permitindo que a aplicação consuma e filtre os dados diretamente a partir dessas fontes.
 
 ## Funcionalidades Futuras
 
