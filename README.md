@@ -37,7 +37,6 @@ O projeto está hospedado no Netlify. Clique no link abaixo para acessar a aplic
 - **Edição Direta no Site**: Futuramente, quero permitir que os usuários (ou eu, no caso) possam adicionar e remover informações dos jogos diretamente pelo site, sem precisar editar a planilha manualmente.
 - **Metas de Conclusão**: Implementar um sistema de metas para incentivar a conclusão dos jogos, como desafios de progresso e marcos.
 - **Notificações de Compras/Assinaturas**: Alerta para evitar a compra de novos jogos enquanto ainda existem jogos não concluídos.
-- **Sincronização entre Dispositivos**: Possibilidade de acessar o progresso dos jogos em diferentes dispositivos.
 - **Aplicação Python para Atualização da Planilha**: Atualmente, estou desenvolvendo uma aplicação em **Python** para facilitar a atualização da planilha de maneira mais prática. Com essa aplicação, será possível adicionar novos jogos à lista, e eles serão automaticamente inseridos na planilha Excel. Isso permitirá que o site seja automaticamente atualizado sempre que a planilha for modificada, sem a necessidade de editar a planilha manualmente.
 
 ---
