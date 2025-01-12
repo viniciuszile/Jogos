@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Gerenciador de Jogos - Lista e Progresso
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi desenvolvido com **React** como uma ferramenta pessoal para organizar e acompanhar os jogos que eu já joguei, os que completei e os que ainda preciso terminar. No entanto, a ideia por trás deste site vai além dos jogos. Eu criei esse gerenciador como uma forma de incentivar as pessoas a se organizarem melhor, seja para jogos, filmes, séries, livros ou qualquer outro hobby.
 
-## Available Scripts
+A aplicação permite filtrar e organizar dados de maneira simples e intuitiva, e pode servir como base para quem deseja criar um sistema similar para organizar e acompanhar seus interesses, não importando o conteúdo.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Carregamento de Dados de uma Planilha Excel**: Os dados podem ser carregados de uma planilha Excel, facilitando a entrada de informações.
+- **Filtros Dinâmicos**: Permite filtrar por várias categorias, como:
+  - **Nome**: Ordenação alfabética (A a Z ou Z a A)
+  - **Categoria**: Pode ser adaptado para jogos, filmes, séries, livros, etc.
+  - **Status**: Exemplo de status como Platinado, Zerado, Incompleto, ou qualquer outro que faça sentido para seu objetivo.
+  - **Objetivo**: Zerar, Completar, Ler, Assistir, etc.
+- **Visualização de Progresso**: Acompanhamento do progresso de cada item, com ícones representando suas categorias (como plataforma de jogos ou tipos de mídia).
+- **Modal de Filtros**: Interface intuitiva para aplicar filtros de maneira rápida e fácil.
+- **Responsividade**: A aplicação é responsiva e funciona bem tanto em dispositivos móveis quanto desktops.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Acesse o Projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O projeto está hospedado no Netlify. Clique no link abaixo para acessar a aplicação diretamente:
 
-### `npm test`
+[Visite o Gerenciador de Jogos](https://gametrackerzile.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias Usadas
 
-### `npm run build`
+- **React**: Biblioteca JavaScript para a construção da interface interativa.
+- **FontAwesome**: Usado para adicionar ícones representando diferentes categorias.
+- **XLSX.js**: Biblioteca para ler e manipular dados de planilhas Excel.
+- **CSS**: Estilização personalizada para a interface do usuário.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Funcionalidades Futuras
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Armazenamento de Progresso**: Permitir salvar e recuperar o progresso ao longo do tempo, mesmo após a aplicação ser fechada.
+- **Metas de Conclusão**: Sistema de metas para incentivar o usuário a completar mais itens (seja jogos, filmes, livros, etc.).
+- **Notificações de Compras/Assinaturas**: Alerta para evitar a aquisição de novos itens (jogos, filmes, livros, etc.) enquanto há itens pendentes.
+- **Sincronização entre Dispositivos**: Acesso ao progresso em múltiplos dispositivos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Dica**: Use essa ferramenta como um modelo para organizar qualquer aspecto da sua vida, não só jogos. Se você é fã de filmes, séries ou livros, pode adaptá-la para te ajudar a manter o foco nos seus hobbies e a se organizar melhor. Não deixe de concluir o que começou antes de adicionar mais ao seu entretenimento! 😉
