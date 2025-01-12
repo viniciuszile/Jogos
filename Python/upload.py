@@ -3,7 +3,7 @@ import base64
 from datetime import datetime
 
 # Defina a URL do repositório e o arquivo a ser enviado
-repo_url = "https://api.github.com/repos/viniciuszile/Jogos/contents/jogos.xlsx"  # Caminho correto para o arquivo jogos.xlsx
+repo_url = "token"  # Caminho correto para o arquivo jogos.xlsx
 file_path = "jogos.xlsx"  # Certifique-se de que este arquivo existe
 
 # Verifique se o arquivo existe localmente
